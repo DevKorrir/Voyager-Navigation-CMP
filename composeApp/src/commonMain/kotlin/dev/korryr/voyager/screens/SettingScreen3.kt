@@ -1,7 +1,6 @@
 package dev.korryr.voyager.screens
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
@@ -28,7 +27,9 @@ class SettingScreen3: Screen {
             Text("Last setting screen")
             Button(
                 onClick = {
-                    navigator?.pop()
+                    if (navigator.canPop) {
+                        navigator.pop()
+                    }
                 },
             ){
                 Text("Go back")

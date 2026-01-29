@@ -1,45 +1,34 @@
 package dev.korryr.voyager.tabs
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import cafe.adriel.voyager.transitions.SlideTransition
+import dev.korryr.voyager.screens.ProfileScreen1
 
 object ProfileTab : Tab {
-        override val options: TabOptions
-            @Composable
-            get() {
-                val title = "Profile"
-                val icon = rememberVectorPainter(Icons.Default.Person)
-                val index: UShort = 1u
-
-                return TabOptions(
-                    index = index,
-                    title = title,
-                    icon = icon
-                )
-
-            }
-
+    override val options: TabOptions
         @Composable
-        override fun Content() {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ){
-                Text("Profile Tab")
+        get() {
+            val title = "Profile"
+            val icon = rememberVectorPainter(Icons.Default.Person)
+            val index: UShort = 1u
 
-            }
+            return TabOptions(
+                index = index,
+                title = title,
+                icon = icon
+            )
         }
 
-
+    @Composable
+    override fun Content() {
+        Navigator(ProfileScreen1()) { navigator ->
+            SlideTransition(navigator)
+        }
+    }
 }
