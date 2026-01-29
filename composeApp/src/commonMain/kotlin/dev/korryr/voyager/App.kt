@@ -29,7 +29,7 @@ fun App() {
             contentAlignment = Alignment.Center
         ){
             Text(
-                text = "Hello aldo"
+                text = "Hello CMP"
             )
         }
     }
