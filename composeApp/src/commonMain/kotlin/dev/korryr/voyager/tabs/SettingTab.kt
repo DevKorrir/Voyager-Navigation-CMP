@@ -9,8 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import cafe.adriel.voyager.transitions.SlideTransition
+import dev.korryr.voyager.screens.SettingScreen
 
 object SettingTab: Tab {
 
@@ -19,7 +22,7 @@ object SettingTab: Tab {
         get() {
             val title = "Settings"
             val icon = rememberVectorPainter(Icons.Default.Settings)
-            val index: UShort = 1u
+            val index: UShort = 2u
 
             return TabOptions(
                 index = index,
@@ -31,11 +34,11 @@ object SettingTab: Tab {
 
     @Composable
     override fun Content() {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
+        Navigator(
+            screen = SettingScreen()
+
         ){
-            Text("Setting Tab")
+            SlideTransition(it)
 
         }
     }

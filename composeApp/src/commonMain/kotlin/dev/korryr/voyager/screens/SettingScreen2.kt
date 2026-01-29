@@ -13,23 +13,24 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 
-class SettingScreen: Screen {
+class SettingScreen2: Screen {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
+
 
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ){
-            Text("Setting Screen")
+            Text("Setting Screen3")
             Button(
                 onClick = {
-                    navigator.push(SettingScreen2())
+                    navigator.push(SettingScreen3())
                 },
             ){
-                Text("Go to Setting2")
+                Text("Go to Setting3")
 
             }
         }

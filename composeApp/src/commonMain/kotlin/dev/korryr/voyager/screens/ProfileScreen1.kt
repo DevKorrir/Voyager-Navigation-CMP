@@ -1,7 +1,6 @@
 package dev.korryr.voyager.screens
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
@@ -13,7 +12,7 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 
-class SettingScreen: Screen {
+class ProfileScreen1 : Screen {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
@@ -21,19 +20,19 @@ class SettingScreen: Screen {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Center
         ){
-            Text("Setting Screen")
+            Text("Profile Screen")
+
             Button(
                 onClick = {
-                    navigator.push(SettingScreen2())
-                },
+                    navigator.push(ProfileScreen2())
+                }
             ){
-                Text("Go to Setting2")
+                Text("Go to Profile2")
 
             }
+
         }
-
-
     }
 }

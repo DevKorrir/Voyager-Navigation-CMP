@@ -11,6 +11,11 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import androidx.compose.material.icons.filled.Home
+import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.transitions.SlideTransition
+import dev.korryr.voyager.screens.DetailScreen
+import dev.korryr.voyager.screens.HomeScreen
+import dev.korryr.voyager.screens.SettingScreen
 
 object HomeTab: Tab {
 
@@ -31,11 +36,11 @@ object HomeTab: Tab {
 
     @Composable
     override fun Content() {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
+        Navigator(
+            screen = HomeScreen()
+
         ){
-            Text("Home Tab")
+            SlideTransition(it)
 
         }
     }
